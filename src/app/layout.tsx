@@ -1,0 +1,6 @@
+import type { Metadata } from 'next';
+import { Header, Footer } from '@/components/Shell';
+import './globals.css';
+const url=process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+export const metadata:Metadata={metadataBase:new URL(url),title:{default:'NMR Properties | Construction & Property Development',template:'%s | NMR Properties'},description:'Architectural design, construction and turnkey building solutions in South Africa and across Africa.',alternates:{canonical:'/'},openGraph:{type:'website',title:'NMR Properties',description:'From the first sketch to the final detail.'}};
+export default function RootLayout({children}:{children:React.ReactNode}){const structured={'@context':'https://schema.org','@type':'GeneralContractor',name:'NMR Properties',telephone:'+27782651476',address:{'@type':'PostalAddress',streetAddress:'155 West Street',addressLocality:'Sandton',addressRegion:'Gauteng',addressCountry:'ZA'},areaServed:['South Africa','Africa']};return <html lang="en"><body><a className="skip" href="#main">Skip to content</a><Header/><main id="main">{children}</main><Footer/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structured).replace(/</g,'\\u003c')}}/></body></html>}
