@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { PageHero, FinalCTA } from '@/components/Sections';
 import { Visual } from '@/components/Visual';
 import { images, projects } from '@/data/site';
-export const metadata:Metadata={title:'Projects',description:'Explore the NMR Properties project gallery and architectural inspiration.',alternates:{canonical:'/projects'}};
+export const metadata = pageMetadata('Residential Construction Projects', 'Explore residential architecture and project photography from NMR Properties.', '/projects');
 export default function Projects(){return <><PageHero eyebrow="Projects" title={<>Spaces that speak<br/><em>for themselves.</em></>} copy="A place for the ideas, details and spaces that shape our work."/><section className="section-pad project-page"><div className="section-index"><span className="eyebrow">{projects.length?'Our projects':'Architectural inspiration'}</span><span>THE COLLECTION</span></div>{projects.length?<div className="project-grid">{projects.map(p=><Link href={`/projects/${p.slug}`} key={p.slug}><Visual src={p.cover} alt={p.title}/><div className="project-meta"><h2>{p.title}</h2><span>{p.category} ↗</span></div></Link>)}</div>:<><div className="project-heading"><h2>A vision of<br/><em>what is possible.</em></h2><p>Our project portfolio is being prepared. The visual below is an original illustration for inspiration and does not represent a completed NMR project.</p></div><Visual src={images.project} className="wide-visual"/><div className="image-caption"><span>ILLUSTRATIVE ARCHITECTURE</span><span>IMAGERY PLACEHOLDER</span></div></>}</section><FinalCTA/></>}

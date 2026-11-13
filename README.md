@@ -26,3 +26,7 @@ Add verified project records to `projects` in `src/data/site.ts`, including slug
 - Replace illustrations with approved imagery and update attribution/labels as appropriate.
 - Set the final domain and verify metadata, sitemap, map, contact links and responsive pages.
 - Confirm applicable payment arrangement wording and terms; none are represented as guaranteed.
+
+## Search visibility
+
+Each page has its own title, description, canonical URL and social sharing metadata. The site exposes `/sitemap.xml`, `/robots.txt`, and business structured data. Set `NEXT_PUBLIC_SITE_URL` to the preferred public origin and redeploy when the domain changes. Verify the domain in Google Search Console and submit the sitemap there; review the business profile separately for accurate contact and location details. Search engines decide when to crawl, index and display pages, so rankings and rich results cannot be guaranteed.
